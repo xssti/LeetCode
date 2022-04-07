@@ -1,15 +1,16 @@
 class Solution:
     def removeElement(self, nums, val):
-        while val in nums:
-            nums.remove(val)
-        return len(nums)
-        #nums = sorted(nums)
-        '''
-         for i in range((len(nums)-1)):
-            if nums[i] == val:
-                #nums.pop(i)
-                del nums[i]
-        '''
+        index = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[index] = nums[i]
+                index += 1
+        return index
+                
+    
+        
+
+        
        
             
             
