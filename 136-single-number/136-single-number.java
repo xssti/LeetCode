@@ -1,17 +1,12 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int ans = 0;
         Map<Integer, Integer> map = new HashMap<>();
         for(int i=0 ;i<nums.length; i++){
-            if(map.containsKey(nums[i])){
-                map.remove(nums[i]);
-            }else{
-                map.put(nums[i],i);
-            }
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
         }
         for(int key : map.keySet()) {
-            ans = key;
+            if(map.get(key) == 1) return key;
         }
-        return ans;
+        return -1;
   }
 }
