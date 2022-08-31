@@ -7,20 +7,19 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
 class Node {
     int val;
     Node left;
     Node right;
     Node parent;
-    
-    public Node(int val, Node left, Node right, Node parent) {
+    public Node(int val, Node left, Node right, Node parent){
         this.val = val;
-        this.left = left;
         this.right = right;
+        this.left = left;
         this.parent = parent;
     }
 }
-
 class Solution {
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
         Node newRoot = remap(root, null);
@@ -50,12 +49,11 @@ class Solution {
         if(node == null) return;
         if(set.contains(node)) return;
         if(count > k) return;
-        if(count == k) {
-            list.add(node.val);
-        }
+        if(count == k) list.add(node.val);
         set.add(node);
-        dfs(node.left, count + 1, k, list, set);
-        dfs(node.right, count + 1, k, list, set);
-        dfs(node.parent, count + 1, k, list, set);
+        dfs(node.left, count + 1, k ,list, set);
+        dfs(node.right, count + 1, k ,list, set);
+        dfs(node.parent, count + 1, k ,list, set);
+        
     }
 }
